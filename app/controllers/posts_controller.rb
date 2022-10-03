@@ -11,6 +11,11 @@ class PostsController < ApplicationController
     render json: post
   end
 
+  def short_content 
+    brief = Post.all 
+    render json: brief, each_serializer: AuthorPostSerializer
+  end
+
   private
 
   def render_not_found_response
